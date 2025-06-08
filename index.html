@@ -48,6 +48,30 @@
       font-size: 1.3rem;
       max-width: 600px;
     }
+
+    #post-game-options {
+      margin-top: 40px;
+      display: none;
+    }
+
+    #post-game-options button {
+      padding: 12px 24px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-play-again {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    .btn-main-site {
+      background-color: #333;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -55,10 +79,24 @@
   <div class="content">
     <h1>FateProtocol</h1>
     <p>Every decision is a compromise. Every choice has consequences.</p>
+
+    <div id="post-game-options">
+      <button class="btn-play-again" onclick="window.location.reload()">🔁 Play Again</button>
+      <button class="btn-main-site" onclick="window.location.href='https://wagsagents.com'">🏠 Return to Main Site</button>
+    </div>
   </div>
 
   <!-- Echo Agent Widget (Voice + Text) -->
   <elevenlabs-convai agent-id="agent_01jx8505n3efxtnq2sfr9ayx51"></elevenlabs-convai>
   <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+  <!-- Script to show post-game options -->
+  <script>
+    function showPostGameOptions() {
+      document.getElementById("post-game-options").style.display = "block";
+    }
+
+    // TODO: call showPostGameOptions() after session ends via webhook or callback
+  </script>
 </body>
 </html>
